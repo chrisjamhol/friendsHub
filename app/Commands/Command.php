@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace friendsHub\Commands;
 
 abstract class Command {
 

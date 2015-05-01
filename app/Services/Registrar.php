@@ -1,6 +1,6 @@
-<?php namespace App\Services;
+<?php namespace friendsHub\Services;
 
-use App\User;
+use friendsHub\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

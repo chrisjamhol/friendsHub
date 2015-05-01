@@ -1,4 +1,4 @@
-<?php namespace App\Console\Commands;
+<?php namespace friendsHub\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
