@@ -13,6 +13,10 @@
 
 Route::get('/', 'WelcomeController@index');
 
+Route::get('snowfeed', function() {
+    return view('snowfeed.index');
+});
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([

@@ -148,6 +148,8 @@ return [
 
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
+
+
 	],
 
 	/*

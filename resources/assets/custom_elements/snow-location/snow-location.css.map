@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,EAAG;EACD,YAAY,EAAE,GAAG",
+"sources": ["../../snow-location/snow-location.scss"],
+"names": [],
+"file": "snow-location.css"
+}

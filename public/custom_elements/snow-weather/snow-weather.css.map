@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,KAAM;EACJ,OAAO,EAAE,KAAK",
+"sources": ["../../snow-weather/snow-weather.scss"],
+"names": [],
+"file": "snow-weather.css"
+}

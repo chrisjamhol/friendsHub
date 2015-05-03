@@ -1,0 +1,76 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/core-image/core-image.html">
+
+<polymer-element name="snow-weather" attributes="weatherNow weather3Days">
+  <template if="{{weatherNow != ''}}">
+    <link rel="stylesheet" href="snow-weather.css">
+
+    <section id="weather" layout horizontal>
+        <section id="weatherNowContainer">
+            <core-ajax id="weatherAjaxCallNow"
+                       url="{{weatherNow}}"
+                       handleAs="json"
+                       on-core-response="{{handleWeatherNowResponse}}"
+                       auto="true"></core-ajax>
+
+            <template id="weatherDataNowTemplate" bind="{{weatherDataNow}}">
+                <div class="weatherNowContainer">
+                    <core-image
+                            src="http://openweathermap.org/img/w/{{weather[0].icon}}.png"
+                            style="width: 50px; height: 50px;"
+                            sizing="cover"
+                            ></core-image>
+                    <template if="{{main.temp}}">
+                        <p>{{main.temp - 273.15 | round(2)}} Grad</p>
+                    </template>
+                    <template if="{{weather[0].description}}">
+                        <p>{{weather[0].description}}</p>
+                    </template>
+                </div>
+            </template>
+        </section>
+
+        <section id="weather3DaysContainer" layout flex>
+            <core-ajax id="weatherkAjaxCall3Days"
+                       url="http://{{weather3Days}}"
+                       handleAs="json"
+                       auto="false"></core-ajax>
+
+            <template id="weatherData3DaysTemplate" bind="{{weatherData3Days}}">
+            </template>
+        </section>
+    </section>
+
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        weatherDataNow: {},
+        ready: function(){
+        },
+        handleWeatherNowResponse: function(e) {
+          this.weatherDataNow = e.detail.response;
+        },
+        weatherDataNowChanged: function() {
+            console.log(this.weatherDataNow);
+        }
+      });
+    })();
+    PolymerExpressions.prototype.round = function (val, precision, method) {
+        precision = precision || 0;
+        var factor = Math.pow(10, precision);
+        var rounder;
+
+        if (method === 'ceil') {
+            rounder = Math.ceil;
+        } else if (method === 'floor') {
+            rounder = Math.floor;
+        } else {
+            rounder = Math.round;
+        }
+
+        return rounder(val * factor) / factor;
+    };
+  </script>
+</polymer-element>

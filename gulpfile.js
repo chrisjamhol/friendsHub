@@ -12,13 +12,16 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.phpUnit();
-
-    mix.less('app.less').coffee();
+    mix.less('app.less');
 
     mix.styles([
         'app.css'
     ], 'public/css/style.css', 'public/css');
 
-    mix.version('public/css/style.css');
+    mix.version([
+        'public/css/style.css'
+    ]);
+
+    mix.copy('resources/assets/bower_components', 'public/bower_components');
+    mix.copy('resources/assets/custom_elements', 'public/custom_elements');
 });
