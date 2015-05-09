@@ -2,7 +2,7 @@
 /node_modules
 .env
 .idea
-/resources/assets/bower_components/
-/public/bower_components/
-/public/custom_elements/
-/public/build/
+resources/assets/bower_components
+public/bower_components
+public/custom_elements
+public/build
