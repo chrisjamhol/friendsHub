@@ -12,14 +12,31 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+    var styles = [
+        'skel.css',
+        'style.css',
+        'style-wide.css'
+    ];
+
+    var scripts = [
+        'jquery.min.js',
+        'jquery.scrolly.min.js',
+        'jquery.scrollzer.min.js',
+        'skel.min.js',
+        'skel-layers.min.js',
+        'init.js',
+        'main.js'
+    ];
+
     mix.less('app.less');
 
-    mix.styles([
-        'app.css'
-    ], 'public/css/style.css', 'public/css');
+    mix.styles(styles, 'public/css/app.css', 'public/css');
+
+    mix.scripts(scripts, 'public/js/app.js', 'public/js');
 
     mix.version([
-        'public/css/style.css'
+        'public/css/app.css',
+        'public/js/app.js'
     ]);
 
     mix.copy('resources/assets/bower_components', 'public/bower_components');
